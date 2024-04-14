@@ -225,7 +225,11 @@ function configureCommandlineSwitchesSync(cliArgs) {
 		'log-level',
 
 		// Use an in-memory storage for secrets
-		'use-inmemory-secretstorage'
+		'use-inmemory-secretstorage',
+
+
+		// disable accelerated compositing
+		'disable-direct-composition'
 	];
 
 	// Read argv config
@@ -282,6 +286,12 @@ function configureCommandlineSwitchesSync(cliArgs) {
 				case 'use-inmemory-secretstorage':
 					if (argvValue) {
 						process.argv.push('--use-inmemory-secretstorage');
+					}
+					break;
+
+				case 'disable-direct-composition':
+					if (argvValue) {
+						process.argv.push('--disable-direct-composition', '1');
 					}
 					break;
 			}
